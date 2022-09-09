@@ -6,7 +6,7 @@ from AppTwo.models import User_List
 
 def index(request):
 
-    page_data_dictionary = {'data_1': "Help File"}
+    page_data_dictionary = {'data_1': "got to /users to see the list of users"}
     return render(request, 'AppTwo/help.html', context=page_data_dictionary)
 
 def users(request):
