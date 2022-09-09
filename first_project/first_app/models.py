@@ -11,7 +11,7 @@ class Topic(models.Model):
 class Webpage(models.Model):
      topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
      name = models.CharField(max_length=264, unique=True)
-     URL =  models.URLField(unique=True)
+     url =  models.URLField(unique=True)
 
      def __str__(self):
          return self.name
@@ -20,6 +20,6 @@ class AccessRecord (models.Model):
     name=models.ForeignKey(Webpage, on_delete=models.CASCADE)
     date = models.DateTimeField()
 
-    def __str__ (self):
+    def __str__(self):
         return str(self.date)
 

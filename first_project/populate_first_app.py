@@ -3,13 +3,12 @@ import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", 'first_project.settings')
 
 import django
-
-django.setup()
-
 import random
 from first_app.models import AccessRecord, Webpage, Topic
 from faker import Faker
 
+
+django.setup()
 fakegen = Faker()
 topics = ['Search', 'Social', 'Marketplace', 'News', 'Games']
 
@@ -33,8 +32,7 @@ def populate(n=5):
         # create the new webpage entry
         webpg = Webpage.objects.get_or_create(topic=top, url=fake_url, name=fake_name)[0]
 
-
-        #create a fake access record
+        # create a fake access record
         acc_rec = AccessRecord.objects.get_or_create(name=webpg, date=fake_date)[0]
 
 
@@ -42,7 +40,3 @@ if __name__ == '__main__':
     print("populating script")
     populate(20)
     print("populate complete")
-
-
-
-
