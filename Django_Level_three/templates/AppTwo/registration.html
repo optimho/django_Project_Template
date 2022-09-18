@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href=' {% static "/css/mystyle.css" %}'>
+    <title>Registration</title>
+</head>
+<body>
+<H1>Registration Form</H1>
+<div class="container">
+    <form method="post">
+
+       {{ registration.as_p }}
+       {% csrf_token %}
+
+       <input type="submit" class="btn styled" value="Submit">
+    </form>
+</div>
+<button class="favorite styled" onclick="window.location.href='/';"
+        type="button">
+    Back to home page
+</button>
+</body>
+</html>

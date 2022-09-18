@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from AppTwo.models import User_List
 from . import forms
-from AppTwo.forms import UserDetails
 # Create your views here.
 
 def index(request):
@@ -26,16 +25,12 @@ def userDetails(request):
         registrationform=forms.UserDetails(request.POST)
 
         if registrationform.is_valid():
-            registrationform.save(commit=True)
-        return index(request)
-    else:
-        print("Form invalid ")
+            #do something
+            print("Form Validation success")
+            print("Name " + registrationform.cleaned_data['u_name'])
+            print("Email " + registrationform.cleaned_data['u_email'])
+            print("Text " + registrationform.cleaned_data['u_text'])
 
-    #do something
-    print("Form Validation success")
-    # print("Name " + registrationform.cleaned_data['u_name'])
-    # print("Email " + registrationform.cleaned_data['u_email'])
-    # print("Text " + registrationform.cleaned_data['u_text'])
 
     return render(request, 'AppTwo/registration.html', {'registration': registrationform})
 
